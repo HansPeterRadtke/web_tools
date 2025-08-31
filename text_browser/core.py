@@ -1,3 +1,5 @@
+import threading
+from text_browser.mouse_simulator import MouseSimulator
 from playwright.sync_api import sync_playwright
 
 class TextBrowser:
@@ -10,11 +12,13 @@ class TextBrowser:
         if user_agent:
             context_args["user_agent"] = user_agent
         if viewport:
-            context_args["viewport"] = {"width": viewport[0], "height": viewport[1]}
+          context_args["viewport"] = {"width": viewport[0], "height": viewport[1]}
         self.context = self.browser.new_context(**context_args)
         self.page = self.context.new_page()
         self.elements = []  # cache from last dump
         print("[DEBUG] Browser initialized with UA:", user_agent or "default")
+        if self.page and viewport:
+          pass  # MouseSimulator temporarily disabled
 
     def goto(self, url: str):
         print(f"[DEBUG] Navigating to {url}...")
@@ -179,6 +183,13 @@ class TextBrowser:
             print("[INFO] Cookie set successfully")
         except Exception as e:
             print(f"[ERROR] Failed to set cookie: {e}")
+    def back(self):
+        print("[DEBUG] Going back one page")
+        try:
+            self.page.go_back()
+            print("[INFO] Went back to previous page")
+        except Exception as e:
+            print("[ERROR] Failed to go back:", e)
 
     def savestate(self, path):
         print(f"[DEBUG] Saving browser state to {path}")
