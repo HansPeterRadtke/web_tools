@@ -100,6 +100,8 @@ def main():
                 elif cmd.startswith("viewport "):
                     _, w, h = cmd.split(" ", 2)
                     tb.set_viewport(int(w), int(h))
+                elif cmd == "back":
+                    tb.back()
                 else:
                     print("[ERROR] Unknown command.")
             except Exception as e:
