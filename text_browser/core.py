@@ -1,5 +1,4 @@
 import threading
-from text_browser.mouse_simulator import MouseSimulator
 from playwright.sync_api import sync_playwright
 
 class TextBrowser:
