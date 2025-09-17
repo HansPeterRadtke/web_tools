@@ -7,7 +7,7 @@ class TextBrowser:
         self.headless = headless
         self.playwright = sync_playwright().start()
         self.browser = self.playwright.chromium.launch(headless=self.headless, args=["--disable-blink-features=AutomationControlled"])
-        context_args = {}
+        context_args = {"accept_downloads": True}
         if user_agent:
             context_args["user_agent"] = user_agent
         if viewport:
@@ -76,8 +76,16 @@ class TextBrowser:
         try:
             el = self._resolve_target(target)
             if el:
-                el.click()
-                print("[INFO] Click successful")
+                try:
+                    with self.page.expect_download() as download_info:
+                        el.click()
+                    download = download_info.value
+                    path = download.suggested_filename
+                    download.save_as(path)
+                    print(f"[INFO] File downloaded: {path}")
+                except Exception:
+                    el.click()
+                    print("[INFO] Click successful (no download detected)")
             else:
                 print("[ERROR] No element found to click")
         except Exception as e:
