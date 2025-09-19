@@ -2,7 +2,7 @@ import os
 import sys
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
-from text_browser.core import TextBrowser
+from hanspeterradtke.webtools.text_browser.core import TextBrowser
 
 print("[DEBUG] Starting test_textbrowser_formvalidation...")
 

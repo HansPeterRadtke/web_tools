@@ -4,7 +4,7 @@ import sys
 # Ensure project root is in PYTHONPATH
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
-from text_browser.core import TextBrowser
+from hanspeterradtke.webtools.text_browser.core import TextBrowser
 
 print("[DEBUG] Starting test_textbrowser_login_fail...")
 
