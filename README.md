@@ -7,7 +7,7 @@ This repository currently contains the `text_browser` module — a programmable 
 ### 📦 `text_browser`  
 A text-based browser class supporting navigation, DOM interaction, JavaScript, and state management.
 
-➡️ Full documentation is located at [`text_browser/README.md`](text_browser/README.md).
+➡️ Full documentation is located at [`hanspeterradtke/webtools/text_browser/README.md`](hanspeterradtke/webtools/text_browser/README.md).
 
 ## License
 MIT
