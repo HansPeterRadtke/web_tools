@@ -1,4 +1,4 @@
-from hanspeterradtke.webtools.text_browser import TextBrowser
+from hpr.webtools.text_browser import TextBrowser
 
 print("[DEBUG] Starting TextBrowser actions test...")
 
