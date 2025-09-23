@@ -21,14 +21,14 @@ playwright install chromium
 ### One-shot CLI mode (default)
 Run a single command and exit.
 ```
-python3 -m text_browser https://example.com
+python3 -m hpr.web_tools.text_browser https://example.com
 ```
 This will open the page, dump text + interactables, then exit.
 
 ### Interactive mode
 Stay in the same browser session and issue multiple commands step by step.
 ```
-python3 -m text_browser --interactive
+python3 -m hpr.web_tools.text_browser --interactive
 ```
 
 You’ll enter a REPL prompt:
@@ -76,7 +76,7 @@ Use commands to interact with the live page. Type `quit`, `exit`, or `q` to leav
 
 ## Examples
 ```
-python3 -m text_browser --interactive
+python3 -m hpr.web_tools.text_browser --interactive
 
 text_browser> goto https://finance.yahoo.com
 text_browser> dump
@@ -94,7 +94,7 @@ text_browser> quit
 
 ## Module Usage (Python)
 ```python
-from text_browser import TextBrowser
+from hpr.web_tools.text_browser import TextBrowser
 
 browser = TextBrowser()
 browser.goto("https://example.com")
